@@ -1,0 +1,20 @@
+XSS_reassign.py None 
+XSS_variable_assign.py None 
+sqli.py The vulnerable line of code is: 
+
+`result = db.engine.execute(param)` 
+
+This line is vulnerable to SQL injection attacks as it directly executes the user input without any sanitization or validation. 
+path_traversal.py None 
+XSS_sanitised.py None 
+path_traversal_sanitised.py Line 9: `image_name = image_name.replace('..', '')` - This line is vulnerable to directory traversal attacks. 
+simple_vulnerability.py Line 4: eval(x) 
+XSS.py None 
+XSS_form.py None 
+XSS_variable_assign_no_vuln.py None 
+path_traversal_sanitised_2.py Line 10: `if not '..' in image_name:` contains a directory traversal vulnerability. 
+command_injection.py Line 16: subprocess.call(command, shell=True) 
+XSS_url.py None 
+XSS_variable_multiple_assign.py None 
+XSS_call.py None 
+XSS_no_vuln.py None 

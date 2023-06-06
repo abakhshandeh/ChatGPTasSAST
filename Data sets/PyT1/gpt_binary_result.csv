@@ -1,0 +1,16 @@
+XSS_reassign.py,"html = open('templates/XSS_param.html').read()"
+XSS_variable_assign.py,None
+sqli.py,result = db.engine.execute(param)
+path_traversal.py,None
+XSS_sanitised.py,"param = Markup.escape(param)"
+path_traversal_sanitised.py,"image_name = image_name.replace('..', '')"
+simple_vulnerability.py,"eval(x)"
+XSS.py,None
+XSS_form.py,None
+XSS_variable_assign_no_vuln.py,None
+path_traversal_sanitised_2.py,"if not '..' in image_name:"
+command_injection.py,"subprocess.call(command, shell=True)"
+XSS_url.py,"resp = make_response(html.replace('{{ param }}', param))"
+XSS_variable_multiple_assign.py,None
+XSS_call.py,"p = ''"
+XSS_no_vuln.py,None
