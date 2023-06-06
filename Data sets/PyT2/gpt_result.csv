@@ -1,0 +1,20 @@
+ensure_saved_scope.py,"return 404"
+yield.py,"subprocess.call(script, shell=True)"
+tainted_arg_normal_function.py,None
+inter_command_injection_2.py,subprocess.call(command, shell=True)
+render_ids.py,"ids = ' onmouseover=alert(1) '"
+django_XSS.py,None
+multi_chain.py,"subprocess.call(ben, shell=True)"
+list_append.py,"os.system(" ".join(cmd))"
+XSS_assign_to_other_var.py,None
+inter_command_injection.py,shell_the_arg('echo ' + param + ' >> ' + 'menu.txt')
+ensure_saved_scope.py,"return 404" is vulnerable to a logical error as it should return a response object instead of an integer.
+yield.py,"subprocess.call(script, shell=True)"
+tainted_arg_normal_function.py,None
+inter_command_injection_2.py,The vulnerable line is:  ```subprocess.call(command, shell=True)```   This line is vulnerable to command injection as it takes user input and directly passes it to the shell without proper validation or sanitization.
+render_ids.py,Line 10: "ids = ' onmouseover=alert(1) '" contains a cross-site scripting (XSS) vulnerability.
+django_XSS.py,None
+multi_chain.py,"subprocess.call(ben, shell=True)"
+list_append.py,"os.system(" ".join(cmd))"
+XSS_assign_to_other_var.py,None
+inter_command_injection.py,The vulnerable line is:  ```shell_the_arg('echo ' + param + ' >> ' + 'menu.txt')```   This line is vulnerable to command injection as it takes user input and directly concatenates it into a shell command without proper validation or sanitization.

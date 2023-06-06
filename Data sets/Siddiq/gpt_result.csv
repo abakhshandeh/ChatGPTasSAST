@@ -1,0 +1,130 @@
+CWE-406_mitre_1.py,None
+CWE-089_codeql_1.py,"cursor.execute("SELECT * FROM users WHERE username = '%s'" % username)"
+CWE-295_codeql_1.py,"return requests.get(url, verify=False).text"
+CWE-414_author_1.py,"from threading import Lock"
+CWE-330_author_1.py,None
+CWE-611_codeql_1.py,None
+CWE-022_author_2.py,None
+CWE-215_codeql_1.py,"app.run(debug=True)"
+CWE-703_author_3.py,None
+CWE-022_author_1.py,"os.remove(fileName)"
+CWE-079_codeql_2.py,None
+CWE-116_codeql_1.py,None
+CWE-193_author_1.py,"arr[i] += 1"
+CWE-521_sonar_1.py,"app.config['SQLALCHEMY_DATABASE_URI'] = "postgresql://user:@domain.com""
+CWE-347_sonar_1.py,"return jwt.decode(token, verify = False)"
+CWE-760_sonar_1.py,None
+CWE-020_codeql_3.py,"if regex.match(target):"
+CWE-502_sonar_1.py,"return yaml.load(data)"
+CWE-730_codeql_1.py,"pattern = request.args["pattern"]"
+CWE-327_codeql_1.py,None
+CWE-319_author_1.py,None
+CWE-094_codeql_1.py,"exec("setname('%s')" % first_name)"
+CWE-352_codeql_1.py,None
+CWE-502_author_1.py,"return (exec, ('import os;os.system(\"ls\")', ))"
+CWE-090_codeql_1.py,"unsafe_dc = request.args['dc']"
+CWE-297_sonar_1.py,"ctx = ssl._create_unverified_context()"
+CWE-605_author_1.py,None
+CWE-1204_sonar_1.py,None
+CWE-209_codeql_1.py,"raise Exception("Secret info")"
+CWE-730_author_1.py,"pattern = r"/^0\.\d+E?\d+$/""
+CWE-434_pearce_1.py,None
+CWE-252_author_1.py,None
+CWE-601_sonar_1.py,None
+CWE-732_author_1.py,"os.system("test.bin")"
+CWE-117_codeql_1.py,None
+CWE-331_author_1.py,None
+CWE-776_codeql_1.py,None
+CWE-113_sonar_2.py,None
+CWE-643_sonar_1.py,None
+CWE-703_author_2.py,None
+CWE-094_author_1.py,"unsafe_input = request.args['input']"
+CWE-022_codeql_1.py,"data = open(filename, 'rb').read()"
+CWE-601_codeql_1.py,None
+CWE-022_codeql_2.py,None
+CWE-020_codeql_4.py,None
+CWE-462_mitre_1.py,None
+CWE-200_author_1.py,"sql = "SELECT * FROM user_bank_account WHERE user_id = '" + userId + "'""
+CWE-283_mitre_1.py,None
+CWE-798_codeql_1.py,"password = request.GET[\"password\"]"
+CWE-601_sonar_4.py,None
+CWE-269_mitre_1.py,"username = request.form['username']"
+CWE-841_mitre_1.py,None
+CWE-113_sonar_1.py,"content_type = request.args[\"Content-Type\"]"
+CWE-090_codeql_2.py,"conn = ldap3.Connection(srv, user=dn, auto_bind=True)"
+CWE-425_author_1.py,None
+CWE-377_codeql_1.py,None
+CWE-321_author_1.py,None
+CWE-079_sonar_1.py,None
+CWE-611_author_1.py,None
+CWE-329_sonar_1.py,None
+CWE-326_author_2.py,None
+CWE-095_author_1.py,"output = eval(inputStr)"
+CWE-020_author_1.py,None
+CWE-641_sonar_1.py,None
+CWE-117_author_1.py,None
+CWE-522_author_1.py,"return base64.b64decode(result[0]) == password"
+CWE-327_codeql_4.py,None
+CWE-020_codeql_1.py,None
+CWE-521_sonar_2.py,None
+CWE-502_mitre_1.py,"token = cPickle.loads(base64.b64decode(headers['AuthToken']))"
+CWE-319_author_2.py,None
+CWE-259_author_1.py,None
+CWE-601_sonar_3.py,None
+CWE-295_author_2.py,None
+CWE-827_sonar_1.py,"tree = etree.parse('ressources/xxe.xml', parser)"
+CWE-327_codeql_3.py,None
+CWE-078_author_1.py,"subprocess.call(["application", user_input])"
+CWE-259_author_2.py,None
+CWE-327_codeql_2.py,None
+CWE-385_mitre_1.py,None
+CWE-379_sonar_1.py,None
+CWE-611_sonar_3.py,"parser = etree.XMLParser(resolve_entities=True)"
+CWE-611_sonar_2.py,None
+CWE-918_codeql_1.py,"response = requests.get(url)"
+CWE-326_author_1.py,None
+CWE-089_author_1.py,None
+CWE-759_mitre_1.py,"hasher.update(Password)"
+CWE-941_mitre_1.py,"None"
+CWE-835_author_1.py,"a,b=b,a+b"
+CWE-284_author_1.py,None
+CWE-079_codeql_1.py,None
+CWE-020_author_2.py,None
+CWE-522_pearce_1.py,None
+CWE-117_sonar_1.py,None
+CWE-297_sonar_4.py,None
+CWE-020_codeql_2.py,"load the decoded data with pickle and store it in a variable and return it"
+CWE-285_codeql_1.py,None
+CWE-312_codeql_1.py,None
+CWE-918_codeql_2.py,"response = requests.get(url)"
+CWE-297_sonar_3.py,None
+CWE-367_author_1.py,None
+CWE-215_author_1.py,None
+CWE-078_codeql_1.py,"os.system(action)"
+CWE-643_codeql_1.py,None
+CWE-595_author_1.py,None
+CWE-080_author_1.py,None
+CWE-798_author_1.py,None
+CWE-434_pearce_2.py,None
+CWE-703_author_1.py,None
+CWE-094_sonar_1.py,"exec("import urllib%s as urllib" % module)"
+CWE-116_author_1.py,None
+CWE-601_sonar_2.py,"url = request.args["next"]"
+CWE-339_mitre_1.py,None
+CWE-454_author_1.py,None
+CWE-611_sonar_4.py,"parser.setFeature(feature_external_ges, True)"
+CWE-384_sonar_1.py,None
+CWE-347_sonar_3.py,None
+CWE-477_author_1.py,"pro_time = time.clock()"
+CWE-347_sonar_2.py,"jwt.decode(token, key, options={"verify_signature": False})"
+CWE-306_pearce_1.py,"return redirect('/settings')"
+CWE-611_sonar_1.py,None
+CWE-099_sonar_1.py,"file = request.args['file']"
+CWE-502_codeql_1.py,None
+CWE-488_author_1.py,None
+CWE-730_codeql_2.py,pattern = request.args["pattern"]
+CWE-295_author_1.py,None
+CWE-400_sonar_1.py,"re.search(username, filename)"
+CWE-943_sonar_1.py,None
+CWE-250_mitre_1.py,None
+CWE-297_sonar_2.py,None

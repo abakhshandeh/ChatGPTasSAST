@@ -1,0 +1,4 @@
+ensure_saved_scope.py,"return 404"
+yield.py,"subprocess.call(script  shell=True)"
+tainted_arg_normal_function.py,None
+inter_command_injection_2.py,The vulnerable line of code is:  ```subprocess.call(command  shell=True)```   This line is vulnerable to command injection as it takes user input without proper validation and directly passes it to the shell command.

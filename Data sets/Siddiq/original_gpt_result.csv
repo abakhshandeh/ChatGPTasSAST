@@ -1,0 +1,130 @@
+CWE-406_mitre_1.py,None
+CWE-089_codeql_1.py,"cursor.execute("SELECT * FROM users WHERE username = '%s'" % username)"
+CWE-295_codeql_1.py,"return requests.get(url, verify=False).text"
+CWE-414_author_1.py,"from threading import Lock" - This line of code is vulnerable to a potential security vulnerability as it imports the Lock class from the threading module without proper validation or sanitization. This can lead to race conditions and other concurrency issues.
+CWE-330_author_1.py,None
+CWE-611_codeql_1.py,None
+CWE-022_author_2.py,None
+CWE-215_codeql_1.py,"app.run(debug=True)"
+CWE-703_author_3.py,None
+CWE-022_author_1.py,The code contains a security vulnerability on line 6: "os.remove(fileName)". This line can delete any file on the system, not just image files, if an attacker can manipulate the "fileName" parameter.
+CWE-079_codeql_2.py,None
+CWE-116_codeql_1.py,None
+CWE-193_author_1.py,Line 5: "arr[i] += 1" - This line can cause an index out of range error if the length of the array is exceeded. To fix this, the while loop condition should be changed to "while i < len(arr):".
+CWE-521_sonar_1.py,"app.config['SQLALCHEMY_DATABASE_URI'] = "postgresql://user:@domain.com""
+CWE-347_sonar_1.py,"return jwt.decode(token, verify = False)"
+CWE-760_sonar_1.py,None
+CWE-020_codeql_3.py,"if regex.match(target):"
+CWE-502_sonar_1.py,The vulnerable line is "return yaml.load(data)" as it can allow for arbitrary code execution through malicious YAML payloads. The safer alternative is to use "yaml.safe_load(data)" instead.
+CWE-730_codeql_1.py,Line 9: `pattern = request.args["pattern"]` - This code is vulnerable to a potential injection attack as it takes user input directly without any validation or sanitization.
+CWE-327_codeql_1.py,None
+CWE-319_author_1.py,None
+CWE-094_codeql_1.py,"exec("setname('%s')" % first_name)"
+CWE-352_codeql_1.py,None
+CWE-502_author_1.py,"return (exec, ('import os;os.system(\"ls\")', ))"
+CWE-090_codeql_1.py,"unsafe_dc = request.args['dc']" - This line is vulnerable to an injection attack as it takes input directly from the user without any validation or sanitization.
+CWE-297_sonar_1.py,"ctx = ssl._create_unverified_context()"
+CWE-605_author_1.py,None
+CWE-1204_sonar_1.py,None
+CWE-209_codeql_1.py,"raise Exception("Secret info")"
+CWE-730_author_1.py,"pattern = r"/^0\.\d+E?\d+$/""
+CWE-434_pearce_1.py,None
+CWE-252_author_1.py,None
+CWE-601_sonar_1.py,None
+CWE-732_author_1.py,"os.system("test.bin")"
+CWE-117_codeql_1.py,None
+CWE-331_author_1.py,None
+CWE-776_codeql_1.py,None
+CWE-113_sonar_2.py,None
+CWE-643_sonar_1.py,None
+CWE-703_author_2.py,None
+CWE-094_author_1.py,"unsafe_input = request.args['input']"
+CWE-022_codeql_1.py,The code contains a security vulnerability on the line:  ```data = open(filename, 'rb').read()```  This line can allow an attacker to perform directory traversal attacks by manipulating the filename parameter.
+CWE-601_codeql_1.py,None
+CWE-022_codeql_2.py,None
+CWE-020_codeql_4.py,None
+CWE-462_mitre_1.py,None
+CWE-200_author_1.py,"sql = "SELECT * FROM user_bank_account WHERE user_id = '" + userId + "'"
+CWE-283_mitre_1.py,None
+CWE-798_codeql_1.py,"password = request.GET[\"password\"]" - This line is vulnerable to a potential security risk as it is directly taking input from the user without any validation or sanitization. An attacker can exploit this vulnerability by injecting malicious code or SQL queries in the password field.
+CWE-601_sonar_4.py,None
+CWE-269_mitre_1.py,Line 7: "username = request.form['username']" - This line is vulnerable to a potential injection attack as it directly takes input from the user without proper validation or sanitization.
+CWE-841_mitre_1.py,None
+CWE-113_sonar_1.py,"content_type = request.args[\"Content-Type\"]" - This line is vulnerable to a potential KeyError if the "Content-Type" parameter is not included in the request arguments.
+CWE-090_codeql_2.py,Line 12: "conn = ldap3.Connection(srv, user=dn, auto_bind=True)" - This line is vulnerable to LDAP injection as it directly uses user input (unsafe_dc and unsafe_filter) to construct the LDAP query without proper input validation and sanitization.
+CWE-425_author_1.py,None
+CWE-377_codeql_1.py,None
+CWE-321_author_1.py,None
+CWE-079_sonar_1.py,None
+CWE-611_author_1.py,None
+CWE-329_sonar_1.py,None
+CWE-326_author_2.py,None
+CWE-095_author_1.py,Line 4: "output = eval(inputStr)" - This code uses the eval() function which can execute arbitrary code and is therefore a security vulnerability.
+CWE-020_author_1.py,None
+CWE-641_sonar_1.py,None
+CWE-117_author_1.py,None
+CWE-522_author_1.py,"return base64.b64decode(result[0]) == password"
+CWE-327_codeql_4.py,None
+CWE-020_codeql_1.py,None
+CWE-521_sonar_2.py,None
+CWE-502_mitre_1.py,"token = cPickle.loads(base64.b64decode(headers['AuthToken']))"
+CWE-319_author_2.py,None
+CWE-259_author_1.py,None
+CWE-601_sonar_3.py,None
+CWE-295_author_2.py,None
+CWE-827_sonar_1.py,The code contains a vulnerability in the line: ```tree = etree.parse('ressources/xxe.xml', parser)``` This line can be exploited for XML External Entity (XXE) attacks.
+CWE-327_codeql_3.py,None
+CWE-078_author_1.py,The code is vulnerable to command injection on line 6: ```subprocess.call(["application", user_input])```
+CWE-259_author_2.py,None
+CWE-327_codeql_2.py,None
+CWE-385_mitre_1.py,None
+CWE-379_sonar_1.py,None
+CWE-611_sonar_3.py,"parser = etree.XMLParser(resolve_entities=True)" - This line of code can potentially lead to an XXE (XML External Entity) vulnerability.
+CWE-611_sonar_2.py,None
+CWE-918_codeql_1.py,"response = requests.get(url)" - This line is vulnerable to Server-Side Request Forgery (SSRF) attack as it takes user input (subdomain) and directly concatenates it to the URL without proper validation. An attacker can manipulate the subdomain parameter to make requests to internal systems or other external systems.
+CWE-326_author_1.py,None
+CWE-089_author_1.py,None
+CWE-759_mitre_1.py,"hasher.update(Password)" - This line is vulnerable to a potential password hash injection attack as it is using the MD5 algorithm which is no longer considered secure for password hashing.
+CWE-941_mitre_1.py,"None"
+CWE-835_author_1.py,Line 6: "a,b=b,a+b" is missing the increment of i, which will cause an infinite loop and a Denial of Service vulnerability.
+CWE-284_author_1.py,None
+CWE-079_codeql_1.py,None
+CWE-020_author_2.py,None
+CWE-522_pearce_1.py,None
+CWE-117_sonar_1.py,None
+CWE-297_sonar_4.py,None
+CWE-020_codeql_2.py,"load the decoded data with pickle and store it in a variable and return it" - This line contains a security vulnerability as it allows for arbitrary code execution if the data being unpickled is malicious.
+CWE-285_codeql_1.py,None
+CWE-312_codeql_1.py,None
+CWE-918_codeql_2.py,"response = requests.get(url)" - This line is vulnerable to Server-Side Request Forgery (SSRF) attack as it takes user input (user_id) and directly concatenates it to the URL without proper validation. An attacker can manipulate the user_id parameter to make requests to internal systems or other external systems.
+CWE-297_sonar_3.py,None
+CWE-367_author_1.py,None
+CWE-215_author_1.py,None
+CWE-078_codeql_1.py,"os.system(action)"
+CWE-643_codeql_1.py,The code does not contain a vulnerability. None.
+CWE-595_author_1.py,None
+CWE-080_author_1.py,None
+CWE-798_author_1.py,None
+CWE-434_pearce_2.py,None
+CWE-703_author_1.py,None
+CWE-094_sonar_1.py,"exec("import urllib%s as urllib" % module)" - This line of code is vulnerable to code injection attacks as it allows an attacker to execute arbitrary code by manipulating the "module" parameter in the request.
+CWE-116_author_1.py,None
+CWE-601_sonar_2.py,The vulnerable line of code is:   ```url = request.args["next"]```   This line is vulnerable to a potential injection attack as it directly takes user input without any validation or sanitization.
+CWE-339_mitre_1.py,None
+CWE-454_author_1.py,None
+CWE-611_sonar_4.py,"parser.setFeature(feature_external_ges, True)"
+CWE-384_sonar_1.py,None
+CWE-347_sonar_3.py,None
+CWE-477_author_1.py,"pro_time = time.clock()" - This line of code uses the deprecated function time.clock() which can be a security vulnerability.
+CWE-347_sonar_2.py,"jwt.decode(token, key, options={"verify_signature": False})"
+CWE-306_pearce_1.py,Line 29: "return redirect('/settings')" - this creates an infinite loop by redirecting to the same page, which can be exploited for a denial of service attack.
+CWE-611_sonar_1.py,The code does not contain a vulnerability. None.
+CWE-099_sonar_1.py,"file = request.args['file']" - This line is vulnerable to a potential injection attack as it directly takes user input without any validation or sanitization.
+CWE-502_codeql_1.py,None
+CWE-488_author_1.py,None
+CWE-730_codeql_2.py,Line 9: pattern = request.args["pattern"]
+CWE-295_author_1.py,None
+CWE-400_sonar_1.py,"re.search(username, filename)" - This line is vulnerable to a regular expression injection attack as it directly uses the user input (username) in the regular expression pattern without proper validation or sanitization.
+CWE-943_sonar_1.py,The code does not contain a vulnerability. None.
+CWE-250_mitre_1.py,None
+CWE-297_sonar_2.py,None
