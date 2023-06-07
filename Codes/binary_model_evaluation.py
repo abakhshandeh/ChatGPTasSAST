@@ -2,32 +2,20 @@ import pandas as pd
 import numpy as np
 import re
 df = pd.read_excel('/home/user/Desktop/python vul Datasets/all/all_dataset_final_labels.xlsx', sheet_name = 'Bakhshandeh')
-#labels = pd.read_excel('labels.xlsx', sheet_name = 'Mr chekidet labels')
 
-#print(df)
 labels=df
-#this function returns x-y(CWE-num) in which x is the number of row of df and
-#  y is the number of line of code that is included in the label
 def reder(col):
     temp = df[col][df[col].notna()].astype(str).str.split(',').explode().astype(float).astype(int).astype(str)
- #   print("temp "+temp)
-    
-    #print(temp)
     preds = (temp.index.astype(str) + '-' + temp)
-  #  print('preds '+preds)
     preds = preds[preds.notna()].values
     return preds
 
-#print(df.columns)
 bandpreds = reder('Bandit_binary')
 gptpreds = reder('gpt_binary')
 sempreds = reder('Semgrep_binary')
-# sonarpreds = reder('Mr. Chekideh sonarqube')
-# codeqlpreds = reder('Mr. Chekideh codeql')  
 exploded_labels = labels['Mr. Chekideh_binary'].str.split(',').explode()
-#print(exploded_labels)
+
 dist_labels = (exploded_labels.index.astype(str) + '-' + exploded_labels).values
-#print(dist_labels) 
 def my_rec(labels, preds):
     rec_samples = [x for x in preds if x in labels]
     return len(rec_samples)/len(labels)
@@ -43,10 +31,6 @@ def fp(labels, preds):
     [x for x in preds] 
      
 def bench_it(labels, preds, attack = ''):
-    # print('attack '+attack)
-    # print('labels ',labels)
-    # labels = [x for x in labels if attack.lower() in x.lower()]
-    #attack.lower()
     preds = [x for x in preds if attack.lower() in x.lower()]
     print('label ', labels)
     print('preds ',preds)
@@ -59,12 +43,10 @@ def bench_it(labels, preds, attack = ''):
     return [pre, rec, f1(pre, rec)]
 
 labels_dist = exploded_labels.str.extract('\((.*)\)')[0].value_counts()  
-#print(labels_dist)
 
 def full_bench(preds):
     atts = list(labels_dist.index)
-    atts.append('')
-    #print(labels_dist)
+    atts.append('')    
     sems = []
     for attack in atts:
         temp = bench_it(dist_labels, preds, attack)
@@ -78,8 +60,7 @@ def mc(preds, name):
     df = full_bench(preds)
     df.columns = pd.MultiIndex.from_tuples([(name, x) for x in full_bench(df).columns])
     return df 
- 
-#print(mc(gptpreds, 'gpt'))
+
 
 final_res_df=pd.concat([mc(sempreds, 'semgrep'), mc(bandpreds, 'bandit'),mc(gptpreds,'gpt')], axis=1)
 

@@ -2,11 +2,6 @@ import pandas as pd
 import numpy as np
 import re
 df = pd.read_excel('/home/user/Desktop/python vul Datasets/all/noclass_final_res.xlsx', sheet_name = 'Bakhshandeh')
-#labels = pd.read_excel('labels.xlsx', sheet_name = 'Mr chekidet labels')
-
-
-
-
 
 df['Bandit'] = df['Bandit'].astype(str)
 
@@ -25,12 +20,6 @@ df['Mr. Chekideh'] = df['Mr. Chekideh'].astype(str)
 df['Mr. Chekideh'] = df['Mr. Chekideh'].apply(remove_spaces)
 df['Mr. Chekideh'] = df['Mr. Chekideh'].apply(lambda x: re.sub(r'\b0(\d{1})\b|\b0(\d{2})\b', r'\1\2', x))
 df['Mr. Chekideh'] = df['Mr. Chekideh'].str.replace(', ', ',')
-
-
-
-
-
-
 
 
 def remove_duplicates(cwe_list):
@@ -56,16 +45,15 @@ def reder(col):
     preds = preds[preds.notna()].values
     return preds
 
-#print(df.columns)
+
 bandpreds = reder('Bandit')
 gptpreds = reder('GPT_NoClass_label')
 sempreds = reder('Semgrep')
-# sonarpreds = reder('Mr. Chekideh sonarqube')
-# codeqlpreds = reder('Mr. Chekideh codeql')  
+
 exploded_labels = labels['Mr. Chekideh'].str.split(',').explode()
-#print(exploded_labels)
+
 dist_labels = (exploded_labels.index.astype(str) + '-' + exploded_labels).values
-#print(dist_labels) 
+ 
 def my_rec(labels, preds):
     rec_samples = [x for x in preds if x in labels]
     return len(rec_samples)/len(labels)
@@ -111,8 +99,7 @@ def mc(preds, name):
     df = full_bench(preds)
     df.columns = pd.MultiIndex.from_tuples([(name, x) for x in full_bench(df).columns])
     return df 
- 
-#print(mc(gptpreds, 'gpt'))
+
 
 final_res_df=pd.concat([mc(sempreds, 'semgrep'), mc(bandpreds, 'bandit'),mc(gptpreds,'gpt')], axis=1)
 

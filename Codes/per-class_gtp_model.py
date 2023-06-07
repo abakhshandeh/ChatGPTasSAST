@@ -5,8 +5,7 @@ import urllib.parse
 import requests
 import pandas as pd
 import re
-#from IPython import display,HTML
-#from dotenv import load_dotenv,find_dotenv
+
 openai.api_key=""
 
 
@@ -59,17 +58,13 @@ for index, row in df.iterrows():
     semgrepLabels=str(row['Semgrep'])
     labels=",".join([banditLabels,semgrepLabels]).replace(',nan','').replace('nan,','')  
     print(filename) 
-   # print(banditLabels,semgrepLabels)
     print(labels)
-    #extracting only CWE-x from tools labels  
     labelsList=labels.split(',')
     listOfLabels=[]
     for i in labelsList:
-       # print(i)
        if labels != 'nan':
             res=re.search('\(.*\)',i)
             value=res.group(0)
-       # print(value)
             if value not in listOfLabels:
                 listOfLabels.append(value)
     print(listOfLabels)
@@ -77,10 +72,8 @@ for index, row in df.iterrows():
     f = os.path.join(directory, filename)
     # checking if it is a file
     if os.path.isfile(f):
-        #print(f)
         with open(f,'r') as file:
             Vul_code=file.read()
-           # print(Vul_code)
             prompt = f"""
             which of the following vulnerabilities from list of vulnerabilities exist in the python code which
             is delimited with triple backticks. also give the line of the vulnerability in the code.
