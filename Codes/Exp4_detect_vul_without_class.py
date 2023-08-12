@@ -8,6 +8,7 @@ import requests
 openai.api_key=""
 
 
+
 def get_completion(prompt, model="gpt-3.5-turbo"):
     messages = [{"role": "user", "content": prompt}]
     response = openai.ChatCompletion.create(
@@ -38,7 +39,7 @@ def get_completion_from_messages(messages, model="gpt-3.5-turbo", temperature=0)
 
 
 
-directory = '/home/user/Desktop/python vul Datasets/PyT1/Labeled_files'
+directory = '/home/user/Desktop/python vul Datasets/Siddiq/Labeled_files'
 
 for filename in os.listdir(directory):
     f = os.path.join(directory, filename)
@@ -50,7 +51,7 @@ for filename in os.listdir(directory):
             prompt3 = f"""
             your task is to determine whether the following python code which is delimited with triple backticks,is vulnerable or not?
             identify the following items:
-                - CWE of the its vulnerabilities. \
+                - CWE of its vulnerabilities. \
                 - lines of vulnerable code. \
             Format your response as a list of JSON objects with \
             "label" and "line of Code" as the keys for each vulnerability.
@@ -62,7 +63,7 @@ for filename in os.listdir(directory):
 
             #print(prompt3)
             response = get_completion(prompt3)
-            with open("/home/user/Desktop/python vul Datasets/PyT1/gpt_result_withoutclass.txt", "a") as output:
+            with open("/home/user/Desktop/sidiq_gpt_result_withoutclass.txt", "a") as output:
                 s=str(response).replace('\n',' ').strip()
                 output.write(rf'{filename}#{s}')
                 output.write('\n')

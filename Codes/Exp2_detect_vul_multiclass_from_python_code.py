@@ -3,6 +3,8 @@ import os
 import time
 import urllib.parse
 import requests
+#from IPython import display,HTML
+#from dotenv import load_dotenv,find_dotenv
 openai.api_key=""
 
 
@@ -33,9 +35,7 @@ def get_completion_from_messages(messages, model="gpt-3.5-turbo", temperature=0)
     )
     return response.choices[0].message["content"]
 
-Vul_code1 = """
-
-
+	
 
 
 labels3 = [
@@ -51,34 +51,20 @@ labels3 = [
     ,"CWE-283","CWE-284","CWE-285","CWE-295","CWE-297","CWE-306","CWE-312","CWE-319","CWE-321"
     ,"CWE-326","CWE-327","CWE-329","CWE-330","CWE-331","CWE-339","CWE-347","CWE-367","CWE-377"
 ]
-directory = '/home/user/Desktop/python vul Datasets/PyT2/Labeled_files'
+
+
+directory = '/home/user/Desktop/python vul Datasets/misc/labeled_files'
 
 for filename in os.listdir(directory):
     f = os.path.join(directory, filename)
     # checking if it is a file
     if os.path.isfile(f):
+        #print(f)
         with open(f,'r') as file:
             Vul_code=file.read()
-            prompt3 = f"""
-            You will be provided with a python code delimited by triple backticks. 
-            If it contains any security vulnerability, identify the lines of vulnerable code and only write the line in quotation\ 
-            If the code does not contain a vulnerability,\ 
-            then simply write \"None\"
-
-            python code: '''{Vul_code}'''
-            """
-            response = get_completion(prompt3)
-            with open("/home/user/Desktop/python vul Datasets/PyT2/gpt_result.csv", "a") as output:
-                s=str(response).replace('\n',' ').strip()
-                output.write(rf'{filename},{s}')
-                output.write('\n')
-            print(response)
-            time.sleep(20)
-
-
-
-multiClass_prompt = f"""
-    which of the following vulnerabilities from list of vulnerabilities exist in the python code which
+            
+           multiClass_prompt = f"""
+    	    which of the following vulnerabilities from list of vulnerabilities exist in the python code which
             is delimited with triple backticks. also give the line of the vulnerability in the code.
 
             python code: '''{Vul_code}'''
@@ -89,45 +75,13 @@ multiClass_prompt = f"""
             "label" and "line of Code" as the keys for each element.
             only answer with JSON.
             """
+            #print(prompt3)
+            response = get_completion(binary_claissification_prompt)
+            with open("/home/user/Desktop/python vul Datasets/misc/test.csv", "a") as output:
+                s=str(response).replace('\n',' ').strip()
+                output.write(rf'{filename},{s}')
+                output.write('\n')
+            print(response)
+            time.sleep(20)
 
-prompt = f"""
-is the following python code vulnerable? identify the following items:
-
-- CWE of the its vulnerability. \
-- line of vulnerable code. \
-The code is delimited with triple backticks.\
-Format your response as a JSON object with \
-"CWE" and "line of Code" as the keys.  
-If the information isn't present, use "unknown" \
-as the value.
-Make your response as short as possible.
-
-python code: '''{Vul_code}'''
-"""
-
-
-prompt2 = f"""
-which of the following vulnerabilities from list of vulnerabilities exist in the python code which
-is delimited with triple backticks.
-
-python code: '''{Vul_code}'''
-
-list of vulnerabilities: {", ".join(labels2)}
-
-Give your answer as list with 0 or 1 for each vulnerability.
-"""
-
-
-
-
-prompt4 = f"""
-find all the vulnerabilities with the CWE standard in the python code which
-is delimited with triple backticks. also give the line of the vulnerability in the code.
-
-python code: '''{Vul_code}'''
-
-Format your response as a list of JSON objects with \
-"label" and "line of Code" as the keys for each element.
-only answer with JSON.
-"""
 

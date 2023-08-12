@@ -34,15 +34,14 @@ def get_completion_from_messages(messages, model="gpt-3.5-turbo", temperature=0)
         messages=messages,
         temperature=temperature, # this is the degree of randomness of the model's output
     )
-#     print(str(response.choices[0].message))
     return response.choices[0].message["content"]
 
 	
 
-df=pd.read_excel(rf'/home/user/Desktop/python vul Datasets/PyT2/PyTy2_final_labels.xlsx')
+df=pd.read_excel(rf'/home/user/Desktop/python vul Datasets/PyT1/PyTy1_final_labels.xlsx')
    
 
-directory = '/home/user/Desktop/python vul Datasets/PyT2/Labeled_files' 
+directory = '/home/user/Desktop/python vul Datasets/PyT1/Labeled_files' 
 gpt_response_list=[]
 
 df['Bandit'] = df['Bandit'].astype(str)
@@ -56,9 +55,11 @@ for index, row in df.iterrows():
     filename = str(row['Filename']) 
     banditLabels = str(row['Bandit'])
     semgrepLabels=str(row['Semgrep'])
-    labels=",".join([banditLabels,semgrepLabels]).replace(',nan','').replace('nan,','')  
-    print(filename) 
+    sonarLabels=str(row['Sonar'])
+    labels=",".join([banditLabels,semgrepLabels,sonarLabels]).replace(',nan','').replace('nan,','')  
+    print(filename)    
     print(labels)
+    #extracting only CWE-x from tools labels  
     labelsList=labels.split(',')
     listOfLabels=[]
     for i in labelsList:
@@ -72,8 +73,9 @@ for index, row in df.iterrows():
     f = os.path.join(directory, filename)
     # checking if it is a file
     if os.path.isfile(f):
+        #print(f)
         with open(f,'r') as file:
-            Vul_code=file.read()
+            Vul_code=file.read()         
             prompt = f"""
             which of the following vulnerabilities from list of vulnerabilities exist in the python code which
             is delimited with triple backticks. also give the line of the vulnerability in the code.
